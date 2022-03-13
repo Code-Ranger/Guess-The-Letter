@@ -1,0 +1,49 @@
+#include<iostream>
+#define letter "i"
+
+using namespace std;
+
+// This Function is for hack And this Hack is Hint
+void hint(int chances){
+    cout<<"Note: After Using This Hint Your Chances will be = 1 And Your Chances Must be greater than 10"<<endl;
+
+    if(chances>10){
+        cout<<"Hint -> The Letter is Third At Third"<<endl;
+    }
+
+    else{
+        cout<<"Your Chances is less than 10"<<endl;
+    }
+}
+
+int main()
+{
+    // Intializing Variables
+    int chances;
+    string user_letter;
+
+        cout<<"\t\t"<<"<=============================Guess The Letter Game=========================>"<<endl;
+    // Loop for executing the game and using the chances
+    for(chances = 20 ; chances>1 ; chances--){
+
+        cout<<"Guess The Letter: ";
+        getline(cin, user_letter);
+
+        if(user_letter == letter){
+            cout<<"Correct Letter... You Won The Game.."<<endl;
+            break;
+        }
+
+        // We are adding a hack in our game
+        else if(user_letter == "Hint" or user_letter == "hint"){
+            // We will create a function for this
+            hint(chances);
+            continue;
+        }
+
+        else{
+            cout<<"Wrong Letter.. Try again Chances Left("<<chances-1<<")"<<endl;
+        }
+    }
+    return 0;
+}
